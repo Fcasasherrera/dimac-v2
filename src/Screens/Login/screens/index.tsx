@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Platform } from 'react-native';
 import styled from 'styled-components/native';
-import { loginUDG } from '../../../shared/Api/index';
+import { loginUDG } from 'shared/Api/index';
 import Toast from 'react-native-simple-toast';
-import { Button } from '../../../shared/components';
+import { Button } from 'shared/components';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from 'shared/styles';
 import BaseIcon from 'react-native-vector-icons/Octicons';
@@ -30,19 +30,20 @@ export const LoginScreen = ({ navigation }) => {
     const login = async () => {
         let response = {}
         setLoading(true)
-        try {
-            response = await loginUDG(state)
-        } catch (error) {
-            Toast.show('Datos no encontrados', Toast.SHORT);
-            setLoading(false)
-        }
-        if (response === 'err') {
-            Toast.show('Datos no encontrados', Toast.SHORT);
-            setLoading(false)
-        } else {
-            setLoading(false)
-            navigation.replace('User', response)
-        }
+        // try {
+        //     response = await loginUDG(state)
+        // } catch (error) {
+        //     Toast.show('Datos no encontrados', Toast.SHORT);
+        //     setLoading(false)
+        // }
+        // if (response === 'err') {
+        //     Toast.show('Datos no encontrados', Toast.SHORT);
+        //     setLoading(false)
+        // } else {
+        //     setLoading(false)
+        //     navigation.replace('User', response)
+        // }
+        navigation.replace('User', response)
     }
 
     return (

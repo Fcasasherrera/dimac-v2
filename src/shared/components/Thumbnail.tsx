@@ -15,12 +15,13 @@ type ButtonProps = {
 };
 
 export const Thumbnail: React.FC<ButtonProps> = ({
-    
+    children,
 }) => {
     return (
         <ThumbnailButton>
-            <Img source={{ uri: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400' }}
-                resizeMode='cover' />
+            <ImgBackground source={{ uri: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400' }}>
+                {children}
+            </ImgBackground>
         </ThumbnailButton>
     )
 };
@@ -35,13 +36,17 @@ type StyleProps = {
 };
 
 const ThumbnailButton = styled.TouchableOpacity<StyleProps>`
-    width: 120px;
-    height: 120px;
-    align-self: center;
-    box-shadow: 3px 3px 2px ${colors.blackTransparentLight};
+    width: 100%;
+    height: 150px;
 `
 const Img = styled.Image<StyleProps>`
     width: 120px;
     height: 120px;
     border-radius: 150px;
+`
+const ImgBackground = styled.ImageBackground<StyleProps>`
+    flex: 1;
+    resize-mode: cover;
+    justify-content: center;
+    align-items: center;
 `

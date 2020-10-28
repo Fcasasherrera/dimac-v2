@@ -7,7 +7,7 @@ export const colors = {
   accentLight: '#c9f4c9',  /* color secundario -Seed */
   white: '#ffffff',
   whiteDark: '#ebe8e8',
-  black: '#575555',
+  black: '#000',
   blackLigth: '#c9c5c5',
   blackTransparent: 'rgba(0,0,0,0.8)',
   blackTransparentLight: 'rgba(0,0,0,0.3)',
