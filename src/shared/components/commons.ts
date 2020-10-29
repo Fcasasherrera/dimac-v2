@@ -57,3 +57,8 @@ export const ImgBackground = styled.ImageBackground<StyleBgProps>`
     justify-content: center;
     align-items: center;
 `
+export const ImgIcon = styled.Image`
+    width: 24px;
+    height: 24px;
+    resize-mode: contain;
+`

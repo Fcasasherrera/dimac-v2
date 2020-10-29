@@ -2,7 +2,7 @@ import React from 'react';
 import {StackNavigationOptions} from '@react-navigation/stack';
 import { colors, spacings} from 'shared/styles';
 import FIcon from 'react-native-vector-icons/Feather';
-import { IconContainer } from 'shared/components/commons';
+import { IconContainer, ImgIcon } from 'shared/components/commons';
 import MIcon from 'react-native-vector-icons/Ionicons';
 import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
 import { DrawerActions } from '@react-navigation/native';
@@ -46,7 +46,8 @@ export const commonScreenOptions = ({ navigation }): StackNavigationOptions => (
   ),
   headerLeft: () => (
     <IconContainer onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-      <FIcon name="menu" size={24} color={colors.primary} />
+      {/* <FIcon name="menu" size={24} color={colors.primary} /> */}
+      <ImgIcon source={require('assets/icons/menu.png')} />
     </IconContainer>
   ),
 });
