@@ -1,7 +1,7 @@
 import {Dimensions} from 'react-native';
 export const colors = {
   primary: '#1786E5', /* color principal */
-  primaryLigth: '#434242', /* color secundario */
+  primaryLigth: 'rgba(23, 134, 229, 0.4)', /* color secundario */
   primaryDark: '#2330d7',
   accent: '#00CC00',
   accentLight: '#c9f4c9',  /* color secundario -Seed */

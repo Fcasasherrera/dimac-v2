@@ -2,6 +2,7 @@ import React from 'react';
 import { DotIndicator } from 'react-native-indicators';
 import styled from 'styled-components/native';
 import { colors } from '../styles';
+import { ImgBackground } from './commons';
 
 type ButtonProps = {
     outline?: boolean;
@@ -19,7 +20,7 @@ export const Thumbnail: React.FC<ButtonProps> = ({
 }) => {
     return (
         <ThumbnailButton>
-            <ImgBackground source={{ uri: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400' }}>
+            <ImgBackground source={require('assets/bgs/bg-drawer.png')}>
                 {children}
             </ImgBackground>
         </ThumbnailButton>
@@ -37,16 +38,10 @@ type StyleProps = {
 
 const ThumbnailButton = styled.TouchableOpacity<StyleProps>`
     width: 100%;
-    height: 150px;
+    height: 200px;
 `
 const Img = styled.Image<StyleProps>`
     width: 120px;
     height: 120px;
     border-radius: 150px;
-`
-const ImgBackground = styled.ImageBackground<StyleProps>`
-    flex: 1;
-    resize-mode: cover;
-    justify-content: center;
-    align-items: center;
 `

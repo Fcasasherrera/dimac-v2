@@ -13,8 +13,8 @@ import BaseSimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
 
 export const LoginScreen = ({ navigation }) => {
     const [state, setState] = useState({
-        user: '',
-        pass: '',
+        user: 'asd',
+        pass: 'asd',
         status: false,
     })
     const [loading, setLoading] = useState(false);
@@ -29,6 +29,8 @@ export const LoginScreen = ({ navigation }) => {
 
     const login = async () => {
         let response = {}
+        console.log('press');
+        
         setLoading(true)
         // try {
         //     response = await loginUDG(state)
@@ -43,7 +45,7 @@ export const LoginScreen = ({ navigation }) => {
         //     setLoading(false)
         //     navigation.replace('User', response)
         // }
-        navigation.replace('User', response)
+        navigation.replace('Inicio', response)
     }
 
     return (
@@ -82,16 +84,16 @@ export const LoginScreen = ({ navigation }) => {
                         secureTextEntry
                     />
                 </InputBox>
-                <View style={{ alignSelf: 'flex-end' }}>
+                {/* <View style={{ alignSelf: 'flex-end' }}>
                     <Button outline={true} secondary={true}>Olvidaste tu contraseña?</Button>
-                </View>
+                </View> */}
                 <ButtonBox>
                     <Button isLoading={loading} isActivated={state.status} onClick={login}>
                         INICIAR
                     </Button>
                 </ButtonBox>
             </LoginBox>
-            <BottomBox>
+            {/* <BottomBox>
                 <Row>
                     <Label>
                         Aun no tienes cuenta?
@@ -100,7 +102,7 @@ export const LoginScreen = ({ navigation }) => {
                         <Button outline={true} secondary={true}>Registrate</Button>
                     </View>
                 </Row>
-            </BottomBox>
+            </BottomBox> */}
         </Container>
     );
 };

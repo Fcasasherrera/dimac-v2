@@ -29,7 +29,7 @@ const header = ({ navigation }): StackNavigationOptions => ({
             <SimpleIcon name="wallet" size={18} color={colors.black} />
         </IconContainer>
     ),
-    headerTitle: () => <Logo source={{ uri: 'https://images.squarespace-cdn.com/content/5134cbefe4b0c6fb04df8065/1540481411828-EI6QOPHKV2JQWV550JIP/squarespace-logo-horizontal-white.jpg?format=1000w&content-type=image%2Fjpeg' }} />,
+    // headerTitle: () => <Logo source={{ uri: 'https://images.squarespace-cdn.com/content/5134cbefe4b0c6fb04df8065/1540481411828-EI6QOPHKV2JQWV550JIP/squarespace-logo-horizontal-white.jpg?format=1000w&content-type=image%2Fjpeg' }} />,
 });
 const Logo = styled.Image`
   margin: 0 auto;

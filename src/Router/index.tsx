@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen } from '../Screens/Login/screens/index';
 import HomeRouter from '../Screens/Home/router/index';
-import { commonScreenOptions } from 'Router/options';
+// import { commonScreenOptions } from 'Router/options';
+import * as options from 'Router/options';
 
 
 const { Navigator, Screen } = createStackNavigator();
@@ -19,9 +20,9 @@ const Router = () => {
                 backgroundColor="transparent"
             />
             <NavigationContainer>
-                <Navigator mode="card" screenOptions={{...commonScreenOptions, headerShown: true}}>
+                <Navigator mode="card">
                     <Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
-                    <Screen name="User" component={HomeRouter}/>
+                    <Screen name="Inicio" component={HomeRouter} options={options.commonScreenOptions}/>
                 </Navigator>
             </NavigationContainer>
         </>
