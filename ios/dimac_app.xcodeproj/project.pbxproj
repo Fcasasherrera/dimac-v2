@@ -18,6 +18,8 @@
 		30C3217B8C6E2D454C31AF7B /* libPods-dimac_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B56A361CF30DF2C498AC20 /* libPods-dimac_app.a */; };
 		4233EBD10AB2FFD04B2B88C1 /* libPods-dimac_app-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECCC047A9D86B1299B7C232 /* libPods-dimac_app-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B90D88442553BAE300ABFAD1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D88432553BAE300ABFAD1 /* NotificationService.swift */; };
+		B90D88482553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B90D88412553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D31A12F776DAE89C5028B5DA /* libPods-dimac_app-dimac_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B87C45120CEE38D334CC99 /* libPods-dimac_app-dimac_appTests.a */; };
 		EF3444EA0533A7300A6AC73A /* libPods-dimac_app-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F613A711D4D027A1F56F54 /* libPods-dimac_app-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -37,7 +39,28 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "dimac_app-tvOS";
 		};
+		B90D88462553BAE300ABFAD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B90D88402553BAE300ABFAD1;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B90D884C2553BAE300ABFAD1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B90D88482553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -51,6 +74,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dimac_app/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dimac_app/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dimac_app/main.m; sourceTree = "<group>"; };
+		15DD86BC2A665B7A5DE8C098 /* Pods-dimac_app-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimac_app-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-dimac_app-OneSignalNotificationServiceExtension/Pods-dimac_app-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		1A661F8CF6944A899FCB5F62 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		1E31A1C4812643A6BD5D3822 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		25B2FD008C2F4DC092C03700 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -75,7 +99,12 @@
 		98F613A711D4D027A1F56F54 /* libPods-dimac_app-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dimac_app-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AF741390024C63BCE63A73 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		A4B87C45120CEE38D334CC99 /* libPods-dimac_app-dimac_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dimac_app-dimac_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2ACD392BAA0082AF04DCA81 /* Pods-dimac_app-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimac_app-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-dimac_app-OneSignalNotificationServiceExtension/Pods-dimac_app-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		B2AD576E99844B3A836A116B /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		B90D883C2553B9AA00ABFAD1 /* dimac_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = dimac_app.entitlements; path = dimac_app/dimac_app.entitlements; sourceTree = "<group>"; };
+		B90D88412553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90D88432553BAE300ABFAD1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B90D88452553BAE300ABFAD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C442A170F040638FB7239FD6 /* Pods-dimac_app-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimac_app-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dimac_app-tvOS/Pods-dimac_app-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C557D587DD1F471C80F20CBB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		CDA9FA1CF9C748A6A8A8E00A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -118,6 +147,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B90D883E2553BAE300ABFAD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -141,6 +177,7 @@
 		13B07FAE1A68108700A75B9A /* dimac_app */ = {
 			isa = PBXGroup;
 			children = (
+				B90D883C2553B9AA00ABFAD1 /* dimac_app.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -178,6 +215,7 @@
 				13B07FAE1A68108700A75B9A /* dimac_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* dimac_appTests */,
+				B90D88422553BAE300ABFAD1 /* OneSignalNotificationServiceExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DDC7145D5E5A02ABA7DE9095 /* Pods */,
@@ -195,6 +233,7 @@
 				00E356EE1AD99517003FC87E /* dimac_appTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* dimac_app-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* dimac_app-tvOSTests.xctest */,
+				B90D88412553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,6 +261,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		B90D88422553BAE300ABFAD1 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B90D88432553BAE300ABFAD1 /* NotificationService.swift */,
+				B90D88452553BAE300ABFAD1 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		DDC7145D5E5A02ABA7DE9095 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +281,8 @@
 				8C256D88EA667333DEEB3B42 /* Pods-dimac_app-tvOS.release.xcconfig */,
 				743C708D34F1B39BE529950D /* Pods-dimac_app-tvOSTests.debug.xcconfig */,
 				86B68758EDFDCD7784E73DFC /* Pods-dimac_app-tvOSTests.release.xcconfig */,
+				15DD86BC2A665B7A5DE8C098 /* Pods-dimac_app-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				B2ACD392BAA0082AF04DCA81 /* Pods-dimac_app-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -271,10 +321,12 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				4081E9E25B52E83C912C6A53 /* [CP] Copy Pods Resources */,
+				B90D884C2553BAE300ABFAD1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B90D88472553BAE300ABFAD1 /* PBXTargetDependency */,
 			);
 			name = dimac_app;
 			productName = dimac_app;
@@ -320,12 +372,30 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* dimac_app-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B90D88402553BAE300ABFAD1 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B90D88492553BAE300ABFAD1 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				B90D883D2553BAE300ABFAD1 /* Sources */,
+				B90D883E2553BAE300ABFAD1 /* Frameworks */,
+				B90D883F2553BAE300ABFAD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = B90D88412553BAE300ABFAD1 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -343,6 +413,10 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+					};
+					B90D88402553BAE300ABFAD1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -363,6 +437,7 @@
 				00E356ED1AD99517003FC87E /* dimac_appTests */,
 				2D02E47A1E0B4A5D006451C7 /* dimac_app-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* dimac_app-tvOSTests */,
+				B90D88402553BAE300ABFAD1 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -393,6 +468,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B90D883F2553BAE300ABFAD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -693,6 +775,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B90D883D2553BAE300ABFAD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B90D88442553BAE300ABFAD1 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -705,6 +795,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* dimac_app-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		B90D88472553BAE300ABFAD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B90D88402553BAE300ABFAD1 /* OneSignalNotificationServiceExtension */;
+			targetProxy = B90D88462553BAE300ABFAD1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -756,8 +851,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E32080457B7748B5EF3485C /* Pods-dimac_app.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = dimac_app/dimac_app.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dimac_app/Info.plist;
@@ -779,8 +876,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AFC5F91F16C13EEB9AECBDA /* Pods-dimac_app.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = dimac_app/dimac_app.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = dimac_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1019,6 +1118,59 @@
 			};
 			name = Release;
 		};
+		B90D884A2553BAE300ABFAD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.dimac-app.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B90D884B2553BAE300ABFAD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.dimac-app.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1063,6 +1215,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B90D88492553BAE300ABFAD1 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B90D884A2553BAE300ABFAD1 /* Debug */,
+				B90D884B2553BAE300ABFAD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

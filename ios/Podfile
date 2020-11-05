@@ -10,6 +10,8 @@ target 'dimac_app' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
   target 'dimac_appTests' do
     inherit! :complete
     # Pods for testing
