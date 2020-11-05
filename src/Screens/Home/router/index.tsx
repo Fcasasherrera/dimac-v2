@@ -19,7 +19,7 @@ const Router = ({ route: { params } }) => {
             <Screen name="Dimac" component={DimacScreen} initialParams={params} />
             <Screen name="Nomina" component={PayrollListScreen} initialParams={params} />
             <Screen name="Cursos" component={CoursesScreen} initialParams={params} />
-            <Screen name="Chat" component={ChatScreen} initialParams={params} />
+            <Screen name="Soporte" component={ChatScreen} initialParams={params} />
             <Screen name="Notifications" component={NotificationsScreen} initialParams={params} />
         </Navigator>
     );

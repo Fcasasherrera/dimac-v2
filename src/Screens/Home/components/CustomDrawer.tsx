@@ -67,12 +67,12 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 3}>Cursos</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 4} onPress={() => navigation.navigate('Chat')}>
+                    <ItemBox active={state.index === 4} onPress={() => navigation.navigate('Soporte')}>
                         <IconContainer>
                             <MIcon name="chatbubble-ellipses-outline" size={18} color={colors.primary} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={state.index === 4}>Chat</Label>
+                            <Label active={state.index === 4}>Soporte</Label>
                         </LabelDrawerBox>
                     </ItemBox>
                     <ItemBox active={state.index === 5} onPress={() => navigation.navigate('Notifications')}>
