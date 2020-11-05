@@ -84,16 +84,16 @@ export const LoginScreen = ({ navigation }) => {
                         secureTextEntry
                     />
                 </InputBox>
-                {/* <View style={{ alignSelf: 'flex-end' }}>
+                <View style={{ alignSelf: 'flex-end' }}>
                     <Button outline={true} secondary={true}>Olvidaste tu contraseña?</Button>
-                </View> */}
+                </View>
                 <ButtonBox>
                     <Button isLoading={loading} isActivated={state.status} onClick={login}>
                         INICIAR
                     </Button>
                 </ButtonBox>
             </LoginBox>
-            {/* <BottomBox>
+            <BottomBox>
                 <Row>
                     <Label>
                         Aun no tienes cuenta?
@@ -102,7 +102,7 @@ export const LoginScreen = ({ navigation }) => {
                         <Button outline={true} secondary={true}>Registrate</Button>
                     </View>
                 </Row>
-            </BottomBox> */}
+            </BottomBox>
         </Container>
     );
 };

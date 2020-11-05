@@ -21,7 +21,7 @@ type StyledContainerProps = {
 };
 export const Container = styled.SafeAreaView<StyledContainerProps>`
     flexDirection: column;
-    align-items: center;
+    
     justify-content: ${props => props.center ? 'center': 'flex-start'};
     
     padding-right: 20px;

@@ -7,8 +7,11 @@ import MIcon from 'react-native-vector-icons/Ionicons';
 import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
 import { DrawerActions } from '@react-navigation/native';
 
-
+{/**
+* @deprecated please no :(
+*/}
 export const commonScreenOptionss: StackNavigationOptions = {
+  title: '',
   headerTitleAlign: 'center',
   headerTitleStyle: {
     fontSize: 16,
@@ -26,7 +29,7 @@ export const commonScreenOptionss: StackNavigationOptions = {
 };
 export const commonScreenOptions = ({ navigation }): StackNavigationOptions => ({
   headerTitleAlign: 'center',
-
+  title: '',
   headerLeftContainerStyle: {
     paddingHorizontal: spacings.right,
   },

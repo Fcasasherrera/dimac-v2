@@ -20,6 +20,7 @@
     "react-hooks-global-state": "^1.0.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-gifted-chat": "^0.16.3",
     "react-native-indicators": "^0.17.0",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-pulse": "^1.0.7",

@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen } from '../Screens/Login/screens/index';
 import HomeRouter from '../Screens/Home/router/index';
-// import { commonScreenOptions } from 'Router/options';
 import * as options from 'Router/options';
 
 

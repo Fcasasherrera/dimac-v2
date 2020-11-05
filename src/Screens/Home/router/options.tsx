@@ -9,7 +9,6 @@ import { StackNavigationOptions } from '@react-navigation/stack';
 
 
 const header = ({ navigation }): StackNavigationOptions => ({
-    title: 'Inicio',
     headerTitleAlign: 'center',
     
     headerTransparent: false,

@@ -14,11 +14,18 @@ import MIcon from 'react-native-vector-icons/Ionicons';;
 
 interface CustomDrawerProps {
     params,
+    drawerOpenProgress,
+    activeItemKey,
+    navigation
+    state
 }
 
 const CustomDrawer = (props: CustomDrawerProps) => {
-    const navigation = useNavigation()
+    // const navigation = useNavigation()
     const { name } = props.params;
+    const { navigation, state } = props;
+    
+    
     return (
         <>
             <Container>
@@ -27,66 +34,65 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                         <Label white>Karine</Label>
                     </LabelBox>
                 </Thumbnail>
-                {/**
-                * @deprecated please no :(
-                */}
                 <ContentBox contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', }}>
-                    <ItemBox active={true} onPress={() => navigation.navigate('Home')}>
+                    <ItemBox active={state.index === 0} onPress={() => navigation.navigate('Home')}>
                         <IconContainer>
                             <MIcon name="home-outline" size={18} color={colors.primary} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={true}>Inicio</Label>
+                            <Label active={state.index === 0}>Inicio</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={false} onPress={() => navigation.navigate('Dimac')}>
+                    <ItemBox active={state.index === 1} onPress={() => navigation.navigate('Dimac')}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/dimac-blue-drawer.png')} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={false}>Dimac</Label>
+                            <Label active={state.index === 1}>Dimac</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={false} onPress={() => navigation.navigate('Nomina')}>
+                    <ItemBox active={state.index === 2} onPress={() => navigation.navigate('Nomina')}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/payroll.png')} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={false}>Nomina</Label>
+                            <Label active={state.index === 2}>Nomina</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={false} onPress={() => navigation.navigate('Cursos')}>
+                    <ItemBox active={state.index === 3} onPress={() => navigation.navigate('Cursos')}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/courses.png')} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={false}>Cursos</Label>
+                            <Label active={state.index === 3}>Cursos</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={false} onPress={() => navigation.navigate('Chat')}>
+                    <ItemBox active={state.index === 4} onPress={() => navigation.navigate('Chat')}>
                         <IconContainer>
                             <MIcon name="chatbubble-ellipses-outline" size={18} color={colors.primary} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={false}>Chat</Label>
+                            <Label active={state.index === 4}>Chat</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={false} onPress={() => navigation.replace('Login')}>
+                    <ItemBox active={state.index === 5} onPress={() => navigation.navigate('Notifications')}>
+                        <IconContainer>
+                            <MIcon name="ios-notifications-outline" size={18} color={colors.primary} />
+                        </IconContainer>
+                        <LabelDrawerBox>
+                            <Label active={state.index === 5}>Notificaciones</Label>
+                        </LabelDrawerBox>
+                    </ItemBox>
+                    <ItemBox active={state.index === 6} onPress={() => navigation.replace('Login')}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/logout.png')} />
                         </IconContainer>
                         <LabelDrawerBox>
-                            <Label active={false}>Cerrar Sesión</Label>
+                            <Label active={state.index === 6}>Cerrar Sesión</Label>
                         </LabelDrawerBox>
                     </ItemBox>
                 </ContentBox>
-                {/* <DrawerContentScrollView {...props} style={{marginTop: 0, paddingTop: 0}}>
-                    <DrawerItemList {...props} />
-                    <DrawerItem
-                        label="Cerrar Sesión"
-                        onPress={() => navigation.replace('Login')}
-                    />
-                </DrawerContentScrollView> */}
+                
             </Container>
         </>
     );
