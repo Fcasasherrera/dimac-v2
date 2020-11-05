@@ -24,9 +24,9 @@ export const DimacScreen = ({ route: { params }, navigation }) => {
             <Container style={{ paddingTop: 10}}>
                 <FlatList
                     data={DimacInfo}
-                    renderItem={({item}) => {
+                    renderItem={({ item, index }) => {
                         return (
-                            <CardIcon status={state.status} icon={'dimac'} title={item.title} note={item.note} content={item.content ? item.content : []}/>
+                            <CardIcon key={index} status={state.status} icon={'dimac'} title={item.title} note={item.note} content={item.content ? item.content : []}/>
                         )
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}

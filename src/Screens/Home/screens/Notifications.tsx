@@ -24,9 +24,9 @@ export const NotificationsScreen = ({ route: { params }, navigation }) => {
             <Container style={{ paddingTop: 10 }}>
                 <FlatList
                     data={NotificationInfo}
-                    renderItem={({ item }) => {
+                    renderItem={({ item, index }) => {
                         return (
-                            <CardIcon isActivated={false} icon={'notification'} title={item.title} note={item.note} />
+                            <CardIcon key={index} isActivated={false} icon={'notification'} title={item.title} note={item.note} />
                         )
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}
