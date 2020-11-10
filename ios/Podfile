@@ -12,6 +12,15 @@ target 'dimac_app' do
 
   pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
 
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  # pod 'react-native-fetch-blob',
+  #   :path => '../node_modules/react-native-fetch-blob'
+
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+
   target 'dimac_appTests' do
     inherit! :complete
     # Pods for testing

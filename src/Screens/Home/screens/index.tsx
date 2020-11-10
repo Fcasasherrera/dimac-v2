@@ -6,9 +6,10 @@ import Toast from 'react-native-simple-toast';
 import { Container, ImgBackground, Label } from 'shared/components/commons';
 import { colors } from 'shared/styles';
 import Pulse from 'react-native-pulse'
+import { postAlert } from 'shared/Api';
 
 export const HomeScreen = ({ route: { params }, navigation }) => {
-    const { name, codigo, carrera } = params;
+    const { name } = params;
 
     const [state, setState] = useState({
         selectedStartDate: '',
@@ -19,6 +20,25 @@ export const HomeScreen = ({ route: { params }, navigation }) => {
     })
     
     const [loading, setLoading] = useState(false);
+
+    const alert = async () => {
+        let response = {}
+        setLoading(true)
+        try {
+            response = await postAlert()
+        } catch (error) {
+            Toast.show('Datos no encontrados', Toast.SHORT);
+            setLoading(false)
+        }
+        
+        if (response === 'error') {
+            Toast.show('Datos no encontrados', Toast.SHORT);
+            setLoading(false)
+        } else {
+            setLoading(false)
+            Toast.show('Su alerta ha sido enviada', Toast.SHORT);
+        }
+    }
 
 
     return (
@@ -32,7 +52,7 @@ export const HomeScreen = ({ route: { params }, navigation }) => {
                     </SmallBox>
                     <CenterPulse>
                         <Pulse color={colors.primary} numPulses={3} diameter={250} speed={15} duration={500} />
-                        <ButtonRounded onLongPress={() => {console.log('asd');}}>
+                        <ButtonRounded onLongPress={alert}>
                             <Label size='22px' style={{ textAlign: 'center', color: 'white'}}>
                                 SOS
                             </Label>

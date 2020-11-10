@@ -31,7 +31,7 @@ const CustomDrawer = (props: CustomDrawerProps) => {
             <Container>
                 <Thumbnail onClick={() => { }} width={'40px'}>
                     <LabelBox>
-                        <Label white>Karine</Label>
+                        <Label white>{ name }</Label>
                     </LabelBox>
                 </Thumbnail>
                 <ContentBox contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', }}>

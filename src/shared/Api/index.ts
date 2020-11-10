@@ -1,39 +1,66 @@
 import axios from 'axios';
-let url = 'https://cuceimobile.tech/Escuela/datosudeg.php'
-let urlLocal = 'https://proyectoreactprogramacionweb.000webhostapp.com/altaCitas.php'
+let baseUrl = 'http://api.opalosoft.com/public/v1.0/dimac/'
+let loginUrl = 'http://api.opalosoft.com/public/v1.0/login/login'
+import Store from "react-native-fs-store";
 
-export const loginUDG = ({user, pass}) => {
-    url += `?codigo=${user}&nip=${pass}`
-    return new Promise<>((resolve, reject) => {
-        axios.get(url)
-            .then(res => {
-                if (res.data === 0) {
-                    resolve('err');
+const Storage = new Store('default');
+
+
+export const loginApi = async (data) => {
+    return new Promise((resolve, reject) => {
+
+        axios.post(loginUrl, data)
+            .then(async (res: any) => {
+                // console.log('res', res.data);
+                if (!res.data.access_token_users) {
+                    resolve('error')
+                } else {
+                    await Storage.setItem('numeroEmpleado', res.data.access_token_users.numeroEmpleado);
+                    await Storage.setItem('use_id', res.data.access_token_users.use_id);
+                    await Storage.setItem('access_token_users', res.data.access_token_users);
+                    resolve(res.data.access_token_users);
                 }
-                let response = {
-                    name: res.data.split(',')[2],
-                    codigo: res.data.split(',')[1],
-                    carrera: res.data.split(',')[4],
-                }
-                resolve(response)
+                
             })
-            .catch(err => {
+            .catch((err) => {
+                console.log('Error grom', err)
                 reject(err)
-            })
+            });
     })
 }
-export const insertCite = ({ dayWeek, month, day, hour, code, name, carreer }) => {
-    urlLocal += `?diasemana=${dayWeek}&mes=${month}&dia=${day}&hora=${hour}&codigo=${code}&nombre=${name}&carrera=${carreer}`
-    return new Promise<>((resolve, reject) => {
-        axios.get(urlLocal)
-            .then(res => {
-                if (res.data === 0) {
-                    resolve('err');
-                }
-                resolve(res.data)
+
+
+const ResourceData = (uri, data, type) => {
+    
+    return new Promise((resolve, reject) => {
+
+        axios.[type](uri, data)
+            .then((res) => {
+                // console.log(res.data.result);
+                resolve(res.data.result)
             })
-            .catch(err => {
+            .catch((err) => {
+                
+                console.log('Error grom', err)
                 reject(err)
-            })
+            });
     })
 }
+
+export const postAlert = async () => {
+    const use_id = await Storage.getItem('use_id');
+    let newData = {
+        id_usuario: use_id,
+        numeroTelefono: '2222222222'
+    }
+    return ResourceData(baseUrl + 'boton_panico', newData, 'post')
+}
+export const postPayrolls = async () => {
+    const numeroEmpleado = await Storage.getItem('numeroEmpleado');
+    let newData = {
+        numeroEmpleado: numeroEmpleado,
+    }
+    return ResourceData(baseUrl + 'recibos_nominas', newData, 'post')
+}
+export const postNotifications = async () => ResourceData(baseUrl + 'alertasenviadas', {}, 'post')
+

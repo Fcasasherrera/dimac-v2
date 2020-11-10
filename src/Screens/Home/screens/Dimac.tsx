@@ -10,13 +10,15 @@ import { CardIcon } from 'shared/components/CardIcon';
 import { FlatList } from 'react-native-gesture-handler';
 
 export const DimacScreen = ({ route: { params }, navigation }) => {
-    const { name, codigo, carrera } = params; 
+    const { name } = params; 
 
     const [state, setState] = useState({
         status: true,
     })
 
     const [loading, setLoading] = useState(false);
+    
+    // Toast.show('El usuario y/o la contraseña son incorrectos', Toast.SHORT);
 
 
     return (
@@ -26,7 +28,7 @@ export const DimacScreen = ({ route: { params }, navigation }) => {
                     data={DimacInfo}
                     renderItem={({ item, index }) => {
                         return (
-                            <CardIcon key={index} status={state.status} icon={'dimac'} title={item.title} note={item.note} content={item.content ? item.content : []}/>
+                            <CardIcon key={index} icon={'dimac'} title={item.title} note={item.note} content={item.content ? item.content : []}/>
                         )
                     }}
                     keyExtractor={(item, index) => { return index.toString() }}

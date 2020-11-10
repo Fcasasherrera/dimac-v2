@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Router from './Router';
 import { FadeInView } from './shared/components';
 import OneSignal from 'react-native-onesignal';
-
+import { PermissionsAndroid, Platform} from "react-native";
 function useOneSignal() {
   // const [uuid, setUuid] = useGlobalState('uuid');
-
+  Platform.OS === 'ios' ? null : PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)  
   const initializeOneSignal = async () => {
     OneSignal.init("956a0b2c-87f5-4703-a2de-177430fbd708", { kOSSettingsKeyAutoPrompt: true });// set kOSSettingsKeyAutoPrompt to false prompting manually on iOS
 

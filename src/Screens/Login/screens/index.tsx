@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Platform } from 'react-native';
 import styled from 'styled-components/native';
-import { loginUDG } from 'shared/Api/index';
+import { loginApi } from 'shared/Api';
 import Toast from 'react-native-simple-toast';
 import { Button } from 'shared/components';
 import LinearGradient from 'react-native-linear-gradient';
@@ -13,8 +13,8 @@ import BaseSimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
 
 export const LoginScreen = ({ navigation }) => {
     const [state, setState] = useState({
-        user: 'asd',
-        pass: 'asd',
+        user: 'karine01',
+        pass: 'karine01',
         status: false,
     })
     const [loading, setLoading] = useState(false);
@@ -28,24 +28,21 @@ export const LoginScreen = ({ navigation }) => {
     }, [state.user, state.pass]);
 
     const login = async () => {
-        let response = {}
-        console.log('press');
-        
+        let response: any = {}
         setLoading(true)
-        // try {
-        //     response = await loginUDG(state)
-        // } catch (error) {
-        //     Toast.show('Datos no encontrados', Toast.SHORT);
-        //     setLoading(false)
-        // }
-        // if (response === 'err') {
-        //     Toast.show('Datos no encontrados', Toast.SHORT);
-        //     setLoading(false)
-        // } else {
-        //     setLoading(false)
-        //     navigation.replace('User', response)
-        // }
-        navigation.replace('Inicio', response)
+        try {
+            response = await loginApi(state)
+        } catch (error) {
+            Toast.show('Datos no encontrados', Toast.SHORT);
+            setLoading(false)
+        }
+        if (response === 'error') {
+            Toast.show('Datos no encontrados', Toast.SHORT);
+            setLoading(false)
+        } else {
+            setLoading(false)
+            navigation.replace('Inicio', { name: response.use_session })
+        }
     }
 
     return (
@@ -65,6 +62,8 @@ export const LoginScreen = ({ navigation }) => {
                         isValid={state.status}
                         onChangeText={text => setState({ ...state, user: text })}
                         value={state.user}
+                        keyboardType='email-address'
+                        autoCapitalize='none'
                         placeholder="Email"
                     />
                 </InputBox>

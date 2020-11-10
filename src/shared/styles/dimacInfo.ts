@@ -59,35 +59,43 @@ export const CoursesInfo = [
     {
         title: 'Curso 1',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 2',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 3',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 4',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 5',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 6',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
     {
         title: 'Curso 7',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
 
     {
         title: 'Curso 8',
         note: 'Curso en defensa personal',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4'
     },
 ]
 export const NotificationInfo = [

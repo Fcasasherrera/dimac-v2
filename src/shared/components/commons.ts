@@ -19,13 +19,13 @@ export const ShadowStyles = `
 type StyledContainerProps = {
   center?: string;
 };
-export const Container = styled.SafeAreaView<StyledContainerProps>`
+export const Container = styled.View<StyledContainerProps>`
     flexDirection: column;
     
     justify-content: ${props => props.center ? 'center': 'flex-start'};
     
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 8px;
+    padding-left: 8px;
 `
 const baseTextStyles = `
   font-size:14px;

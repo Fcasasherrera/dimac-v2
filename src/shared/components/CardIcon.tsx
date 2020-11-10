@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { Label, ShadowStyles } from 'shared/components/commons';
 import { colors, spacings } from '../styles';
 import MIcon from 'react-native-vector-icons/Ionicons';;
+import { Text } from "react-native";
 
 type CardIconProps = {
     icon: string;
@@ -47,10 +48,10 @@ export const CardIcon: React.FC<CardIconProps> = ({
                         {title}
                     </Label>
                     {note ?
-                        <Label secondary bold='normal' style={{ paddingHorizontal: 0, textAlign: 'left', }}>
+                        <Label secondary bold='normal' numberOfLines={1} style={{ paddingHorizontal: 0, textAlign: 'left', }}>
                             {note}
                         </Label>
-                        : null}
+                    : null}
                 </SmallBox>
             </Row>
             {title !== 'Nuestros Valores' ?
@@ -105,7 +106,7 @@ export const CardIcon: React.FC<CardIconProps> = ({
             }
         </Card>
     ) : (
-            <CardTouchable center>
+            <CardTouchable center onPress={onClick}>
                 <Row>
                     <IconCardBox>
                         {icon === 'dimac' ?
@@ -123,7 +124,7 @@ export const CardIcon: React.FC<CardIconProps> = ({
                             {title}
                         </Label>
                         {note ?
-                            <Label secondary bold='normal' style={{ paddingHorizontal: 0, textAlign: 'left', }}>
+                            <Label secondary bold='normal' numberOfLines={1} style={{ paddingHorizontal: 0, textAlign: 'left', }}>
                                 {note}
                             </Label>
                             : null}
