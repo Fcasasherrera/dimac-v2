@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Platform } from 'react-native';
 import styled from 'styled-components/native';
-import { loginApi } from 'shared/Api';
+import { loginApi, getCurrent } from 'shared/Api';
 import Toast from 'react-native-simple-toast';
 import { Button } from 'shared/components';
 import LinearGradient from 'react-native-linear-gradient';
@@ -17,6 +17,15 @@ export const LoginScreen = ({ navigation }) => {
         pass: 'karine01',
         status: false,
     })
+    const checkUser = (use_id) => {
+        console.log(use_id);
+        if (use_id !== undefined) {
+            navigation.replace('Inicio', { name: '' })
+        }
+    }
+    useEffect(() => {
+        getCurrent(checkUser);
+    }, [])
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

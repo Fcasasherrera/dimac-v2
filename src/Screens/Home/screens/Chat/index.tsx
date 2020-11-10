@@ -1,33 +1,105 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat, InputToolbar, Composer, Day } from 'react-native-gifted-chat'
 import { ImgBackground, } from 'shared/components/commons';
-import { colors } from 'shared/styles';
+import { DotIndicator } from 'react-native-indicators';
+import { colors, DefaultChat } from 'shared/styles';
 import styled from 'styled-components/native';
 import MIcon from 'react-native-vector-icons/Ionicons';
-import {
-    StyleSheet,
-} from 'react-native'
+import Toast from 'react-native-simple-toast';
+import { postCheckChat, postOnLoadChat, postSendMessage } from 'shared/Api';
 
 export const ChatScreen = ({ route: { params }, navigation }) => {
     const [messages, setMessages] = useState([]);
-
+    const [idChat, setidChat] = useState('');
+    const [loading, setLoading] = useState(false);
+    const seePrevMessages = async(id_chat) => {
+        let response: any = {}
+        // setLoading(true)
+        try {
+            response = await postCheckChat(id_chat);
+        } catch (error) {
+            Toast.show('Error al ejecutar la peticion', Toast.SHORT);
+            setLoading(false)
+        }
+        // setLoading(false)
+        let res = response.conversacionChat.reverse();
+        
+        var messages = [];
+        for (var i = 0; i < res.length; i++) {
+            if (res[i].Operador == "Usuario") {
+                var data = {
+                    _id: i,
+                    text: res[i].Texto,
+                    createdAt: new Date(),
+                    user: {
+                        _id: 1,
+                        name: 'Usuario',
+                        avatar: require('assets/icons/dimac-blue-drawer.png'),
+                    },
+                }
+                messages.push(data);
+            }
+            else {
+                var data = {
+                    _id: i,
+                    text: res[i].Texto,
+                    createdAt: new Date(),
+                    user: {
+                        _id: 2,
+                        name: 'Asistencia Dimac',
+                        avatar: require('assets/icons/dimac-blue-drawer.png'),
+                    },
+                }
+                messages.push(data);
+            }
+        }
+        setMessages(messages)   
+    }
+    const initial = async () => {
+        let response:any = {}
+        setLoading(true)
+        try {
+            response = await postOnLoadChat();
+        } catch (error) {
+            Toast.show('Error al ejecutar la peticion', Toast.SHORT);
+            setLoading(false)
+        }
+        
+        
+        if (response.Estatus === "Nuevo") {
+            setMessages(DefaultChat)
+            setLoading(false)
+        } else {
+            setLoading(false)
+            setidChat(response.id_chat)
+            seePrevMessages(response.id_chat)
+        }
+    }
+    const reloadMessages = () => {
+        seePrevMessages(idChat)
+    }
     useEffect(() => {
-        setMessages([
-            {
-                _id: 1,
-                text: 'Hello developer',
-                createdAt: new Date(),
-                user: {
-                    _id: 2,
-                    name: 'React Native',
-                    avatar: 'https://placeimg.com/140/140/any',
-                },
-            },
-        ])
+        initial();
     }, [])
 
-    const onSend = useCallback((messages = []) => {
+    useEffect(() => {
+        let interval = setTimeout(() => {
+            reloadMessages()
+        }, 20000)
+        return () => {
+            clearInterval(interval);
+        }
+    });
+
+    const onSend = useCallback(async (messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+        let response: any = {}
+        
+        try {
+            response = await postSendMessage(idChat, messages[0].text);
+        } catch (error) {
+            Toast.show('Error al enviar el mensaje', Toast.SHORT);
+        }
     }, [])
 
     const renderInputToolbar = (props) => {
@@ -58,18 +130,22 @@ export const ChatScreen = ({ route: { params }, navigation }) => {
 
     return (
         <Background source={require('assets/bgs/bg-home.png')}>
-            <GiftedChat
-                scrollToBottom={true}
-                renderAvatarOnTop={true}
-                messages={messages}
-                renderInputToolbar={renderInputToolbar}
-                renderDay={renderDay}
-                renderSend={renderSend} 
-                onSend={messages => onSend(messages)}
-                user={{
-                    _id: 1,
-                }}
-            />
+            {loading ? 
+                <DotIndicator color={colors.primary} size={10} count={3} />
+            :
+                <GiftedChat
+                    scrollToBottom={true}
+                    renderAvatarOnTop={true}
+                    messages={messages}
+                    renderInputToolbar={renderInputToolbar}
+                    renderDay={renderDay}
+                    renderSend={renderSend} 
+                    onSend={messages => onSend(messages)}
+                    user={{
+                        _id: 1,
+                    }}
+                />
+            }
         </Background>
     )
 }

@@ -3,7 +3,7 @@ import { ScrollView, RefreshControl} from 'react-native'
 import styled from 'styled-components/native';
 import Toast from 'react-native-simple-toast';
 import { Container, ImgBackground, Label, ShadowStyles } from 'shared/components/commons';
-import { colors, PayrollInfo } from 'shared/styles';
+import { colors } from 'shared/styles';
 import { CardIcon } from 'shared/components/CardIcon';
 import { FlatList } from 'react-native-gesture-handler';
 import { postPayrolls } from 'shared/Api';

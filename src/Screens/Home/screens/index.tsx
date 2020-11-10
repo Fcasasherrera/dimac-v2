@@ -9,7 +9,6 @@ import Pulse from 'react-native-pulse'
 import { postAlert } from 'shared/Api';
 
 export const HomeScreen = ({ route: { params }, navigation }) => {
-    const { name } = params;
 
     const [state, setState] = useState({
         selectedStartDate: '',

@@ -6,11 +6,12 @@ import {
 } from '@react-navigation/drawer';
 import styled from 'styled-components/native';
 import { Thumbnail } from '../../../shared/components/Thumbnail';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 import { colors } from 'shared/styles';
 import FIcon from 'react-native-vector-icons/Feather';
 import { IconContainer } from 'shared/components/commons'
-import MIcon from 'react-native-vector-icons/Ionicons';;
+import MIcon from 'react-native-vector-icons/Ionicons';import { logOut } from 'shared/Api';
+;
 
 interface CustomDrawerProps {
     params,
@@ -22,20 +23,28 @@ interface CustomDrawerProps {
 
 const CustomDrawer = (props: CustomDrawerProps) => {
     // const navigation = useNavigation()
-    const { name } = props.params;
+    // const { name } = props.params;
     const { navigation, state } = props;
-    
-    
+
+
     return (
         <>
             <Container>
                 <Thumbnail onClick={() => { }} width={'40px'}>
-                    <LabelBox>
-                        <Label white>{ name }</Label>
-                    </LabelBox>
+                    {/* <LabelBox>
+                        <Label white>{name}</Label>
+                    </LabelBox> */}
                 </Thumbnail>
                 <ContentBox contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-start', alignItems: 'center', }}>
-                    <ItemBox active={state.index === 0} onPress={() => navigation.navigate('Home')}>
+                    <ItemBox active={state.index === 0} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes:[{name: 'Home',}]
+                            })
+                        )
+                        // navigation.navigate('Home')
+                    }}>
                         <IconContainer>
                             <MIcon name="home-outline" size={18} color={colors.primary} />
                         </IconContainer>
@@ -43,7 +52,15 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 0}>Inicio</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 1} onPress={() => navigation.navigate('Dimac')}>
+                    <ItemBox active={state.index === 1} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes:[{name: 'Dimac',}]
+                            })
+                        )
+                        // navigation.navigate('Dimac')
+                    }}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/dimac-blue-drawer.png')} />
                         </IconContainer>
@@ -51,7 +68,15 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 1}>Dimac</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 2} onPress={() => navigation.navigate('Nomina')}>
+                    <ItemBox active={state.index === 2} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes:[{name: 'Nomina',}]
+                            })
+                        )
+                        // navigation.navigate('Nomina')
+                    }}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/payroll.png')} />
                         </IconContainer>
@@ -59,7 +84,15 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 2}>Nomina</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 3} onPress={() => navigation.navigate('Cursos')}>
+                    <ItemBox active={state.index === 3} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes:[{name: 'Cursos',}]
+                            })
+                        )
+                        // navigation.navigate('Cursos')
+                    }}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/courses.png')} />
                         </IconContainer>
@@ -67,7 +100,15 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 3}>Cursos</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 4} onPress={() => navigation.navigate('Soporte')}>
+                    <ItemBox active={state.index === 4} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes:[{name: 'Soporte',}]
+                            })
+                        )
+                        // navigation.navigate('Soporte')
+                    }}>
                         <IconContainer>
                             <MIcon name="chatbubble-ellipses-outline" size={18} color={colors.primary} />
                         </IconContainer>
@@ -75,7 +116,15 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 4}>Soporte</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 5} onPress={() => navigation.navigate('Notifications')}>
+                    <ItemBox active={state.index === 5} onPress={() => {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes: [{ name: 'Notifications', }]
+                            })
+                        )
+                        // navigation.navigate('Notifications')
+                    }}>
                         <IconContainer>
                             <MIcon name="ios-notifications-outline" size={18} color={colors.primary} />
                         </IconContainer>
@@ -83,7 +132,10 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                             <Label active={state.index === 5}>Notificaciones</Label>
                         </LabelDrawerBox>
                     </ItemBox>
-                    <ItemBox active={state.index === 6} onPress={() => navigation.replace('Login')}>
+                    <ItemBox active={state.index === 6} onPress={() => {
+                        logOut()
+                        navigation.replace('Login')
+                    }}>
                         <IconContainer>
                             <ImgIcon source={require('assets/icons/logout.png')} />
                         </IconContainer>
@@ -92,7 +144,7 @@ const CustomDrawer = (props: CustomDrawerProps) => {
                         </LabelDrawerBox>
                     </ItemBox>
                 </ContentBox>
-                
+
             </Container>
         </>
     );

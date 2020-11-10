@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,6 +11,7 @@ const { Navigator, Screen } = createStackNavigator();
 
 
 const Router = () => {
+    
     return (
         <>
             <StatusBar

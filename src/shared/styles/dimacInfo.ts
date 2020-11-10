@@ -133,3 +133,25 @@ export const NotificationInfo = [
         note: 'Notificación en defensa personal',
     },
 ]
+export const DefaultChat = [
+    {
+        _id: 1,
+        text: 'En que puedo ayudarte..?',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'React Native',
+            avatar: require('assets/icons/dimac-blue-drawer.png'),
+        },
+    },
+    {
+        _id: 2,
+        text: 'Bienvenido..!',
+        createdAt: new Date(),
+        user: {
+            _id: 2,
+            name: 'React Native',
+            avatar: require('assets/icons/dimac-blue-drawer.png'),
+        },
+    },
+]
